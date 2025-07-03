@@ -1,0 +1,15 @@
+services:
+  glassminers_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    restart: unless-stopped
+    environment:
+      - MAX_LOGS=5
+      # - LOG_DIR="/var/log/glassminers"
+      # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
+    volumes:
+      - ./logs:/var/log/glassminers
+    ports:
+      - 9876:9876/tcp
