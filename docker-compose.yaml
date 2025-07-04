@@ -9,6 +9,7 @@ services:
       - MAX_LOGS=20
       # - LOG_DIR="/var/log/glassminers"
       # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
+      # - WATCHDOG_ENABLED="false" # Use docker restart behavior instead of internal watchdog
     volumes:
       - ./logs:/var/log/glassminers
     ports:
