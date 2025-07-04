@@ -6,7 +6,7 @@ services:
       network: host
     restart: unless-stopped
     environment:
-      - MAX_LOGS=5
+      - MAX_LOGS=20
       # - LOG_DIR="/var/log/glassminers"
       # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
     volumes:
