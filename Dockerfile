@@ -11,11 +11,11 @@ RUN mkdir -p ${LOG_DIR}
 WORKDIR "/usr/local/bin/glassminers"
 
 COPY ./scripts/download_server.sh ./
-COPY ./scripts/run_server.sh ./
+COPY ./scripts/server_script.sh ./
 
 RUN chmod 777 ./*.sh
 RUN ./download_server.sh
 
-CMD ["./run_server.sh"]
+CMD ["./server_script.sh"]
 
 EXPOSE 9876
