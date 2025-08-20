@@ -1,16 +1,37 @@
 services:
-  glassminers_server:
+  glassminers_server_stable:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - SERVER_VERSION=stable
+        - SERVER_PORT=9876
       network: host
     restart: unless-stopped
-    container_name: glassminers_server
+    container_name: glassminers_server_stable
     environment:
       - MAX_LOGS=20
       # - LOG_DIR="/var/log/glassminers"
       # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
     volumes:
-      - ./logs:/var/log/glassminers
+      - ./logs:/var/log/glassminers_stable
     ports:
       - 9876:9876/tcp
+  glassminers_server_nightly:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - SERVER_VERSION=nightly
+        - SERVER_PORT=9877
+      network: host
+    restart: unless-stopped
+    container_name: glassminers_server_nightly
+    environment:
+      - MAX_LOGS=20
+      # - LOG_DIR="/var/log/glassminers"
+      # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
+    volumes:
+      - ./logs:/var/log/glassminers_nightly
+    ports:
+      - 9877:9876/tcp
