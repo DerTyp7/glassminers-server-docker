@@ -2,7 +2,7 @@
 
 echo "[Info] Downloading server executable..."
 
-LOCAL_EXECUTABLE_NAME="server_$1.out"
+LOCAL_EXECUTABLE_NAME="server.out"
 
 if [ "$1" = "stable" ]; then
   wget https://github.com/surrealtm/Glassminers/releases/latest/download/GMServer.out -O $LOCAL_EXECUTABLE_NAME

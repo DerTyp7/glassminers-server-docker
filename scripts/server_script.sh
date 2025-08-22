@@ -4,7 +4,7 @@ MAX_LOGS=${MAX_LOGS:-20}
 LOG_DIR=${LOG_DIR:-"/var/log/glassminers"}
 LOG_DATE_FORMAT=${LOG_DATE_FORMAT:-"%Y-%m-%d-%H-%M-%S"}
 
-EXEC=./server_$1.out
+EXEC=./server.out
 TIMESTAMP=$(date +"$LOG_DATE_FORMAT")
 
 delete_old_logs() {

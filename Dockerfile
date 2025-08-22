@@ -5,9 +5,6 @@ FROM debian:12.11-slim
 ARG SERVER_VERSION
 ARG SERVER_PORT
 
-# This one is used at run-time
-ENV SERVER_VERSION ${SERVER_VERSION}
-
 RUN apt-get update && apt-get install -y wget
 
 ENV MAX_LOGS="20"
@@ -22,8 +19,9 @@ COPY ./scripts/download_server.sh ./
 COPY ./scripts/server_script.sh ./
 
 RUN chmod 777 ./*.sh
+RUN echo Building glassminers sever $SERVER_VERSION
 RUN ./download_server.sh $SERVER_VERSION
 
-CMD ./server_script.sh ${SERVER_VERSION}
+CMD [ "./server_script.sh" ]
 
 EXPOSE $SERVER_PORT
