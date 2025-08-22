@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y wget
 ENV MAX_LOGS="20"
 ENV LOG_DIR="/var/log/glassminers"
 ENV LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S"
+ENV VERSION="latest"
 
 RUN mkdir -p ${LOG_DIR}
 

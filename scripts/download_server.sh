@@ -1,7 +1,15 @@
 #!/bin/bash
 
-echo "[Info] Downloading latest server version..."
-wget https://github.com/surrealtm/Glassminers/releases/latest/download/GMServer.out -O "server.out"
+VERSION=${VERSION:- "latest"}
+
+echo "[Info] Downloading server (${VERSION})..."
+
+if [ "$VERSION" = "latest" ]; then
+    wget https://github.com/surrealtm/Glassminers/releases/latest/download/GMServer.out -O "server.out"
+
+else
+    wget https://github.com/surrealtm/Glassminers/releases/download/${VERSION}/GMServer.out -O "server.out"
+fi
 
 if [ $? -ne 0 ]; then
   echo "[Error] Download failed! Aborting."
