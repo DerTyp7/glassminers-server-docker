@@ -40,7 +40,8 @@ trap 'clean_up; exit 0' SIGTERM
 
 echo "[Info] Max number of logs set to $MAX_LOGS"
 echo "[Info] Server is starting at [$TIMESTAMP]"
-$EXEC >"$LOG_DIR/latest.log" &
+
+$EXEC | tee "$LOG_DIR/latest.log" &
 SERVER_PID=$!
 
 wait $SERVER_PID
