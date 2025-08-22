@@ -1,15 +1,13 @@
 services:
   glassminers_server:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      network: host
+    image: dertyp876/glassminers-server:latest
     restart: unless-stopped
     container_name: glassminers_server
-    environment:
-      - MAX_LOGS=20
-      # - LOG_DIR="/var/log/glassminers"
-      # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
+    # environment:
+    # - VERSION=latest # Example: "v0.3.1"
+    # - MAX_LOGS=20
+    # - LOG_DIR="/var/log/glassminers"
+    # - LOG_DATE_FORMAT="%Y-%m-%d-%H-%M-%S" # No spaces
     volumes:
       - ./logs:/var/log/glassminers
     ports:
